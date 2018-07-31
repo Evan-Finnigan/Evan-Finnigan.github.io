@@ -11,17 +11,17 @@
 <script>
 webgazer.setGazeListener(function(data, elapsedTime) {
     if (data == null) {
-    	document.write("nothing yet")
+    	document.getElementById("recieving null :(")
         return;
     }
     var xprediction = data.x; //these x coordinates are relative to the viewport
     var yprediction = data.y; //these y coordinates are relative to the viewport
     console.log(elapsedTime); //elapsed time is based on time since begin was called
-    document.write(xprediction)
+    document.getElementById("output").innerHTML = xprediction + " " + yprediction
 }).begin();
 </script>
 	
-Content of the document......
+<p id = "output"> Nothing yet! </p>
 </body>
 
 </html>
