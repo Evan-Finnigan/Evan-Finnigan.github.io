@@ -12,7 +12,7 @@
 window.onload = function(){
 	webgazer.setGazeListener(function(data, elapsedTime) {
 	    if (data == null) {
-	    	document.getElementById("recieving null :(")
+	    	document.getElementById("output").innerHTML = "recieving null :("
 	        return;
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
