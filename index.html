@@ -9,16 +9,18 @@
 </script> 
 
 <script>
-webgazer.setGazeListener(function(data, elapsedTime) {
-    if (data == null) {
-    	document.getElementById("recieving null :(")
-        return;
-    }
-    var xprediction = data.x; //these x coordinates are relative to the viewport
-    var yprediction = data.y; //these y coordinates are relative to the viewport
-    console.log(elapsedTime); //elapsed time is based on time since begin was called
-    document.getElementById("output").innerHTML = xprediction + " " + yprediction
-}).begin();
+window.onload = function(){
+	webgazer.setGazeListener(function(data, elapsedTime) {
+	    if (data == null) {
+	    	document.getElementById("recieving null :(")
+	        return;
+	    }
+	    var xprediction = data.x; //these x coordinates are relative to the viewport
+	    var yprediction = data.y; //these y coordinates are relative to the viewport
+	    console.log(elapsedTime); //elapsed time is based on time since begin was called
+	    document.getElementById("output").innerHTML = xprediction + " " + yprediction
+	}).begin();
+}
 </script>
 	
 <p id = "output"> Nothing yet! </p>
