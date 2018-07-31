@@ -11,6 +11,7 @@
 <script>
 webgazer.setGazeListener(function(data, elapsedTime) {
     if (data == null) {
+    	document.write("nothing yet")
         return;
     }
     var xprediction = data.x; //these x coordinates are relative to the viewport
@@ -18,17 +19,6 @@ webgazer.setGazeListener(function(data, elapsedTime) {
     console.log(elapsedTime); //elapsed time is based on time since begin was called
     document.write(xprediction)
 }).begin();
-</script>
-
-<script>
-var prediction = webgazer.getCurrentPrediction();
-if (prediction) {
-    var x = prediction.x;
-    var y = prediction.y;
-    window.alert(x)
-} else {
-	window.alert("okay didn't get anything")
-}
 </script>
 	
 Content of the document......
