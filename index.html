@@ -9,13 +9,16 @@
 </script> 
 
 <script>
+var counter = 0;
+
 window.onload = function(){
 	webgazer.setRegression('ridge') /* currently must set regression and tracker */
     .setTracker('clmtrackr')
     .setGazeListener(function(data, elapsedTime) {
 	    if (data == null) {
-	    	document.getElementById("output").innerHTML = "recieving null :(";
-	        return;
+        counter = counter + 1;
+	    	document.getElementById("output").innerHTML = "recieving null :(" + counter;
+	       return;
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
