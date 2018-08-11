@@ -20,6 +20,7 @@ window.onload = function(){
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
 
+      var ctx = plotter.getContext("2d");
       ctx.beginPath();
       ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
       ctx.fillStyle = 'green';
