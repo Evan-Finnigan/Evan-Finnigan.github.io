@@ -66,6 +66,11 @@ window.onload = function(){
     };
 
     function setup_plotter(){
+      var width = 320;
+      var height = 240;
+      var topDist = '0px';
+      var leftDist = '0px';
+
       var plotter = document.createElement('canvas');
       plotter.id = 'plotter';
       plotter.style.position = 'absolute';
