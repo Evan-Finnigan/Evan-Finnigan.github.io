@@ -95,6 +95,17 @@ window.onload = function(){
       var ctx = plotter.getContext("2d");
 
       document.body.appendChild(plotter)
+
+      //setup the listener for clearing the plotter
+      document.addEventListener('keydown', function(event) {
+      if(event.keyCode == 67) {
+        var plotter = document.getElementById("plotter");
+        var ctx = plotter.getContext("2d");
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, plotter.width, plotter.height);
+      }
+      });
+
     }
 
     function checkIfReady() {
