@@ -18,8 +18,14 @@ window.onload = function(){
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
-	    console.log(elapsedTime); //elapsed time is based on time since begin was called
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
+
+      ctx.beginPath();
+      ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
+      ctx.fillStyle = 'green';
+      ctx.fill();
+      ctx.stroke();
+
 	}).begin();
 
 	function setup_webgazer() {
@@ -66,22 +72,28 @@ window.onload = function(){
     };
 
     function setup_plotter(){
-      var width = 320;
-      var height = 240;
+      var width = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+
+      var height = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+
       var topDist = '0px';
       var leftDist = '0px';
 
       var plotter = document.createElement('canvas');
       plotter.id = 'plotter';
-      //plotter.style.position = 'absolute';
+      plotter.style.position = 'absolute';
       plotter.width = width;
       plotter.height = height;
       plotter.style.top = topDist;
       plotter.style.left = leftDist;
       plotter.style.margin = '0px';
       var ctx = plotter.getContext("2d");
-      ctx.fillStyle = "#FF0000";
-      ctx.fillRect(20, 20, 150, 100);
+
+      document.body.appendChild(plotter)
     }
 
     function checkIfReady() {
