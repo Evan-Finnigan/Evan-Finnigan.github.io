@@ -65,13 +65,21 @@ window.onload = function(){
       drawLoop();
     };
 
-    // function setup_plotter(){
-      
-    // }
+    function setup_plotter(){
+      var plotter = document.createElement('canvas');
+      plotter.id = 'plotter';
+      plotter.style.position = 'absolute';
+      plotter.width = width;
+      plotter.height = height;
+      plotter.style.top = topDist;
+      plotter.style.left = leftDist;
+      plotter.style.margin = '0px';
+    }
 
     function checkIfReady() {
       if (webgazer.isReady()) {
         setup_webgazer();
+        setup_plotter();
       } else {
         setTimeout(checkIfReady, 100);
       }
