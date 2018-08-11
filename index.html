@@ -74,6 +74,9 @@ window.onload = function(){
       plotter.style.top = topDist;
       plotter.style.left = leftDist;
       plotter.style.margin = '0px';
+      var ctx = plotter.getContext("2d");
+      ctx.fillStyle = "#FF0000";
+      ctx.fillRect(20, 20, 150, 100);
     }
 
     function checkIfReady() {
