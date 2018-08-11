@@ -20,12 +20,15 @@ window.onload = function(){
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
 
-      var ctx = plotter.getContext("2d");
-      ctx.beginPath();
-      ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
-      ctx.fillStyle = 'green';
-      ctx.fill();
-      ctx.stroke();
+      //check to make sure that the dot will not draw over the video feed
+      if(xprediction > 320 && yprediction > 240){
+        var ctx = plotter.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
+        ctx.fillStyle = 'green';
+        ctx.fill();
+        ctx.stroke();
+      }
 
 	}).begin();
 
@@ -102,7 +105,8 @@ window.onload = function(){
         var plotter = document.getElementById("plotter");
         var ctx = plotter.getContext("2d");
         ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, plotter.width, plotter.height);
+        ctx.fillRect(320, 0, plotter.width, plotter.height);
+        ctx.fillRect(0,240, plotter.width, plotter.height);
       }
       });
 
