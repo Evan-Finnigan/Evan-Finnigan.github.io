@@ -21,7 +21,7 @@ window.onload = function(){
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
 
       //check to make sure that the dot will not draw over the video feed
-      if(xprediction > 320 && yprediction > 240){
+      if(xprediction > 320 || yprediction > 240){
         var ctx = plotter.getContext("2d");
         ctx.beginPath();
         ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
