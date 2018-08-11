@@ -22,7 +22,7 @@ window.onload = function(){
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
 	}).begin();
 
-	function setup() {
+	function setup_webgazer() {
 
       var width = 320;
       var height = 240;
@@ -65,15 +65,19 @@ window.onload = function(){
       drawLoop();
     };
 
+    // function setup_plotter(){
+      
+    // }
+
     function checkIfReady() {
       if (webgazer.isReady()) {
-        setup();
+        setup_webgazer();
       } else {
         setTimeout(checkIfReady, 100);
       }
     }
 
-    // setTimeout(checkIfReady,100);
+    setTimeout(checkIfReady,100);
 
 }
 </script>
