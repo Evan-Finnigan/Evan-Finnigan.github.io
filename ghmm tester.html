@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
+	<script src = "ghmm.js"></script>
+</head>
+<body>
+  <p id = "output"></p>
+    <script type="text/javascript">
+    const p = new GHMM(3,2);
+    window.alert(p.propagate(math.matrix([1, 1]), 1));
+  </script>
+</body>
+</html>
