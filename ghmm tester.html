@@ -8,7 +8,8 @@
   <p id = "output"></p>
     <script type="text/javascript">
     const p = new GHMM(3,2);
-    window.alert(p.propagate(math.matrix([1, 1]), 1));
+    window.alert(p.propagate(math.matrix([[1, 1], [2,2], [3,3]]), 3));
+    window.alert(p.evaluate([2,2])); 
   </script>
 </body>
 </html>
