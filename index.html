@@ -19,7 +19,7 @@ window.onload = function(){
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
 	    document.getElementById("output").innerHTML = xprediction + " " + yprediction;
-      document.cookie = "xdata=" + "60";
+      document.cookie = "ydata=" + xprediction;
 
       //check to make sure that the dot will not draw over the video feed
       if(xprediction > 320 || yprediction > 240){
