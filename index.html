@@ -172,7 +172,7 @@
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
-	    document.getElementById("output").innerHTML = argmax(g.evaluate(math.matrix([xprediction, yprediction])));
+	    document.getElementById("output").innerHTML = g.evaluate(math.matrix([xprediction, yprediction]));
 
       //this will plot the dots that we will see
       //make sure to check that the dot will not draw over the video feed
