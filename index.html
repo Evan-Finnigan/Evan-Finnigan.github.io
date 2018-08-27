@@ -123,12 +123,14 @@
         g.training = true;
         g.training_data = math.zeros([50, 2]);
         g.num_training_data = 0;
+        window.alert("pressed");
       }
       });
 
       document.addEventListener('keyup', function(event) {
       if(event.keyCode == 32) {
         g.training = false;
+        window.alert("released");
       }
       });
     }
@@ -194,6 +196,7 @@
         //if in training mode collect training data and train after 50 points are collected
         if(g.training){
           if(g.num_training_data == 50){
+            window.alert(g.training_data);
             g.train(g.training_data);
             g.num_training_data = 0;
           }else{
