@@ -53,7 +53,15 @@
       drawLoop();
     };
 
-    function draw_targets(plotter, width, height){
+    function draw_targets(plotter){
+      var width = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+
+      var height = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+
       //draw the three targets
       var ctx = plotter.getContext("2d");
       ctx.beginPath();
@@ -102,7 +110,7 @@
       document.body.appendChild(plotter);
 
       //draw the three targets
-      draw_targets(plotter, width, height);
+      draw_targets(plotter);
 
       //setup the listener for clearing the plotter
       document.addEventListener('keydown', function(event) {
@@ -167,7 +175,7 @@
         ctx.fillRect(0,240, plotter.width, plotter.height);
 
         //draw the three targets
-        draw_targets(plotter, width, height);
+        draw_targets(plotter);
         
         ctx.beginPath();
         ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
