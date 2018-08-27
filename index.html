@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title of the document</title>
+<title>Cluster Eye Tracking Data</title>
+<script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
+<script src = "ghmm.js"></script>
 </head>
 <body>
 <script src="webgazer.js" type="text/javascript"></script>
@@ -74,6 +76,29 @@
       var ctx = plotter.getContext("2d");
 
       document.body.appendChild(plotter)
+
+      //draw the three targets
+      var ctx = plotter.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(width/2,height/4,10,0,2*Math.PI);
+      ctx.fillStyle = 'yellow';
+      ctx.fill();
+      ctx.stroke();
+
+      var ctx = plotter.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(width/4,3*height/4,10,0,2*Math.PI);
+      ctx.fillStyle = 'purple';
+      ctx.fill();
+      ctx.stroke();
+
+      var ctx = plotter.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(3 * width / 4, 3 * height / 4,10,0,2*Math.PI);
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+      ctx.stroke();
+
 
       //setup the listener for clearing the plotter
       document.addEventListener('keydown', function(event) {
