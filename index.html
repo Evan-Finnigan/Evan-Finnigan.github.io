@@ -11,6 +11,7 @@
 <script>
   //global GHMM object
   var g = new GHMM(3,2);
+  var already_pressed = false;
 
   //setup functions for video feed and plotter
   function setup_webgazer() {
@@ -119,18 +120,18 @@
     function setup_hmm(){
       //setup the listener for key training mode
       document.addEventListener('keydown', function(event) {
-      if(event.keyCode == 32) {
+      if(event.keyCode == 32 && !already_pressed) {
         g.training = true;
         g.training_data = math.zeros([50, 2]);
         g.num_training_data = 0;
-        window.alert("pressed");
+        already_pressed = true;
       }
       });
 
       document.addEventListener('keyup', function(event) {
       if(event.keyCode == 32) {
         g.training = false;
-        window.alert("released");
+        already_pressed = false;
       }
       });
     }
