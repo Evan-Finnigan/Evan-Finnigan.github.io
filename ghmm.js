@@ -125,7 +125,7 @@ class GHMM {
 
 	train(Y){
 		var i;
-		for(i = 0; i < 100; i++){
+		for(i = 0; i < 5; i++){
 			this.propagate(Y, Y._size[0]);
 			this.update(Y._size[0]);
 		}
