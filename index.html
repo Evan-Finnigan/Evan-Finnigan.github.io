@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 4</title>
+<title>Cluster Eye Tracking Data 5</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -203,7 +203,7 @@
             g.train(g.training_data);
             g.num_training_data = 0;
           }else{
-            g.trainging_data = math.subset(g.training_data, math.index(g.num_training_data, [0, 1]), math.matrix([xprediction, yprediction]));
+            g.training_data = math.subset(g.training_data, math.index(g.num_training_data, [0, 1]), math.matrix([xprediction, yprediction]));
             g.num_training_data = g.num_training_data + 1;
           }
         }
