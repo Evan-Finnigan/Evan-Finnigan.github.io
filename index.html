@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 2</title>
+<title>Cluster Eye Tracking Data 3</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -122,7 +122,7 @@
       document.addEventListener('keydown', function(event) {
       if(event.keyCode == 32 && !already_pressed) {
         g.training = true;
-        g.training_data = math.zeros([50, 2]);
+        g.training_data = math.zeros(50, 2);
         g.num_training_data = 0;
         already_pressed = true;
       }
