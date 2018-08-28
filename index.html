@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 5</title>
+<title>Cluster Eye Tracking Data 6</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -73,6 +73,8 @@
       ctx.fill();
       ctx.stroke();
 
+      window.alert(width/2,height/4);
+
       var ctx = plotter.getContext("2d");
       ctx.beginPath();
       ctx.arc(width/4,3*height/4,10,0,2*Math.PI);
@@ -80,12 +82,16 @@
       ctx.fill();
       ctx.stroke();
 
+      window.alert(width/4,3*height/4);
+
       var ctx = plotter.getContext("2d");
       ctx.beginPath();
       ctx.arc(3 * width / 4, 3 * height / 4,10,0,2*Math.PI);
       ctx.fillStyle = 'blue';
       ctx.fill();
       ctx.stroke();
+
+      window.alert(3 * width / 4, 3 * height / 4);
     }
 
     function setup_plotter(){
