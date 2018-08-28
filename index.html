@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 3</title>
+<title>Cluster Eye Tracking Data 4</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -130,6 +130,7 @@
 
       document.addEventListener('keyup', function(event) {
       if(event.keyCode == 32) {
+        window.alert("hi");
         g.training = false;
         already_pressed = false;
       }
