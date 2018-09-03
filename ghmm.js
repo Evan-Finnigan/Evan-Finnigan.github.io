@@ -52,6 +52,8 @@ class GHMM {
 			this.alpha = math.subset(this.alpha, math.index(i, math.range(0, this.n_hidden)), math.divide(math.subset(this.alpha, math.index(i, math.range(0, this.n_hidden))), math.sum(math.subset(this.alpha, math.index(i, math.range(0,this.n_hidden))))));
 		}
 		this.gamma = math.subset(this.gamma, math.index(n - 1, math.range(0, this.n_hidden)), math.subset(this.alpha, math.index(n - 1, math.range(0, this.n_hidden))));
+		window.alert(this.gamma);
+		
 		var j;
 		for(j = n - 2; j > -1; j--){
 			this.gamma = math.subset(this.gamma, math.index(j, math.range(0, this.n_hidden)), math.dotDivide(math.dotMultiply(math.subset(this.alpha, math.index(j, math.range(0, this.n_hidden))),  math.multiply(math.subset(this.gamma, math.index(j+1, math.range(0, this.n_hidden))), math.transpose(this.A))), math.multiply(math.subset(this.alpha, math.index(j, math.range(0, this.n_hidden))), this.A)));	
@@ -128,7 +130,6 @@ class GHMM {
 		window.alert("training");
 		var i;
 		for(i = 0; i < 100; i++){
-			window.alert(this.mean);
 			this.propagate(Y, Y._size[0]);
 			this.update(Y._size[0]);
 		}
