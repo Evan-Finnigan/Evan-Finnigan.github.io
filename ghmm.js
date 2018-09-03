@@ -1,16 +1,17 @@
 class GHMM {
-	constructor(n_hidden, out_dim){
+	constructor(n_hidden, out_dim, cov_guess, mean_guess){
 		this.n_hidden = n_hidden;
 		this.out_dim = out_dim;
 
 		this.cov = [];
+		this.mean = [];
 
 		var i;
 		for (i = 0; i < n_hidden; i++) { 
-    		this.cov[i] = math.identity(out_dim, out_dim);
+    		this.cov[i] = math.multiply(math.identity(out_dim, out_dim), cov_guess[i]);
+    		this.mean[i] = math.matrix(mean_guess[i]);
 		}
 
-		this.mean = [math.matrix([0, 0]), math.matrix([5, 0]), math.matrix([10, 0])];
 		this.A = math.add(math.zeros(n_hidden, n_hidden), 1/n_hidden);
 		this.pi = math.add(math.zeros(1, n_hidden), 1/n_hidden);
 		this.old_alpha = math.add(math.zeros(1, n_hidden), 1/n_hidden);
@@ -124,8 +125,10 @@ class GHMM {
 	}
 
 	train(Y){
+		window.alert("training");
 		var i;
-		for(i = 0; i < 5; i++){
+		for(i = 0; i < 100; i++){
+			window.alert(this.mean);
 			this.propagate(Y, Y._size[0]);
 			this.update(Y._size[0]);
 		}

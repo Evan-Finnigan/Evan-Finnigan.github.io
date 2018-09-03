@@ -5,8 +5,14 @@
 	<script src = "ghmm.js"></script>
 </head>
 <body>
+
+
   <p id = "output"></p>
-    <script type="text/javascript">
+  <p id = "1"> </p>
+  <p id = "1"> </p>
+  <p id = "1"> </p>
+
+  <script type="text/javascript">
     function argmax(array){
     	var max_index = -1;
     	var max = Number.MIN_SAFE_INTEGER;
@@ -30,7 +36,7 @@
     var A_empirical = math.zeros(3, 3);
     var centroids = math.matrix([[0,0],[5,0],[10,0]]);
 
-    var g = new GHMM(3,2);
+    var g = new GHMM(3,2, [1, 1, 1], [[0, 0], [0, 5], [0, 10]]);
 
     var Y = math.matrix([[ -0.53444326,   0.53105703],
 						 [  4.42280774,  -0.33091116],
@@ -258,7 +264,10 @@
     window.alert(Y_test2);
     window.alert(Y_test3);
 
-
+    // document.getElementById("1").innerHTML = Y_test1;
+    // document.getElementById("2").innerHTML = Y_test2;
+    // document.getElementById("3").innerHTML = Y_test3;
   </script>
+
 </body>
 </html>
