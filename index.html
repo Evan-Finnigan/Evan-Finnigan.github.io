@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 21</title>
+<title>Cluster Eye Tracking Data 22</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -128,7 +128,6 @@
 
       document.addEventListener('keyup', function(event) {
       if(event.keyCode == 32) {
-        window.alert("hi");
         g.training = false;
         already_pressed = false;
       }
@@ -175,8 +174,7 @@
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
-	    // document.getElementById("output").innerHTML = g.evaluate(math.matrix([xprediction, yprediction]));
-      document.getElementById("output").innerHTML = g.mean;
+	    document.getElementById("output").innerHTML = g.evaluate(math.matrix([xprediction, yprediction]));
 
       //this will plot the dots that we will see
       //make sure to check that the dot will not draw over the video feed
@@ -200,7 +198,6 @@
         //if in training mode collect training data and train after 50 points are collected
         if(g.training){
           if(g.num_training_data == 50){
-            window.alert(g.training_data);
             g.train(g.training_data);
             g.num_training_data = 0;
           }else{
