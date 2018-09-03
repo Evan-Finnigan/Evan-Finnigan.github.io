@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 16</title>
+<title>Cluster Eye Tracking Data 17</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -195,6 +195,8 @@
         ctx.fill();
         ctx.stroke();
 
+        document.getElementById("location").innerHTML = xprediction + " " + yprediction;
+
         //if in training mode collect training data and train after 50 points are collected
         if(g.training){
           if(g.num_training_data == 50){
@@ -221,6 +223,7 @@
   <td>Nothing yet!</td> 
   </tr>
 </table>
+<p id = "location"> Nothing yet </p>
 </body>
 
 </html>
