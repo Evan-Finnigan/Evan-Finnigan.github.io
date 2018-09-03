@@ -52,7 +52,7 @@ class GHMM {
 			this.alpha = math.subset(this.alpha, math.index(i, math.range(0, this.n_hidden)), math.divide(math.subset(this.alpha, math.index(i, math.range(0, this.n_hidden))), math.sum(math.subset(this.alpha, math.index(i, math.range(0,this.n_hidden))))));
 		}
 		this.gamma = math.subset(this.gamma, math.index(n - 1, math.range(0, this.n_hidden)), math.subset(this.alpha, math.index(n - 1, math.range(0, this.n_hidden))));
-		window.alert(this.alpha);
+		window.alert(this.p(math.squeeze(math.subset(Y, math.index(0, [0, this.out_dim - 1])))));
 
 		var j;
 		for(j = n - 2; j > -1; j--){
