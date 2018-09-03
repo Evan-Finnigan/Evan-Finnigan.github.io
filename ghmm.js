@@ -27,7 +27,7 @@ class GHMM {
 			var exponent = math.chain(-.5)
 							.multiply(math.multiply(
 													adjusted_y, 
-													math.multiply(cov,
+													math.multiply(math.inv(cov),
 																  adjusted_y)))
 							.done();
 			var divisor = math.sqrt(math.pow(math.pi * 2, this.out_dim) * math.det(cov));
