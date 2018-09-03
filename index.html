@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 12</title>
+<title>Cluster Eye Tracking Data 13</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -175,7 +175,8 @@
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
-	    document.getElementById("output").innerHTML = g.evaluate(math.matrix([xprediction, yprediction]));
+	    // document.getElementById("output").innerHTML = g.evaluate(math.matrix([xprediction, yprediction]));
+      document.getElementById("output").innerHTML = g.mean;
 
       //this will plot the dots that we will see
       //make sure to check that the dot will not draw over the video feed
