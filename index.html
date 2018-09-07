@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 25</title>
+<title>Cluster Eye Tracking Data 26</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -191,6 +191,9 @@
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
       var currently_looking_at = argmax(g.evaluate(math.matrix([xprediction, yprediction])));
 	    document.getElementById("output").innerHTML = currently_looking_at;
+
+      // write a cookie, this will allow us to read the position off from python and then send it to the robot
+      document.cookie = "position = " + currently_looking_at.toString();
 
       //this will plot the dots that we will see
       //make sure to check that the dot will not draw over the video feed
