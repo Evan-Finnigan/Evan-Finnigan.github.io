@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cluster Eye Tracking Data 23</title>
+<title>Cluster Eye Tracking Data 24</title>
 <script src="https://unpkg.com/mathjs@5.1.0/dist/math.min.js"></script>
 <script src = "ghmm.js"></script>
 </head>
@@ -56,7 +56,7 @@
       drawLoop();
     };
 
-    function draw_targets(plotter){
+    function draw_targets(plotter, currently_looking_at){
       var width = window.innerWidth
       || document.documentElement.clientWidth
       || document.body.clientWidth;
@@ -84,6 +84,21 @@
       ctx.fillStyle = 'blue';
       ctx.fill();
       ctx.stroke();
+
+      // draw a circle around the point the user is looking at
+      if(currently_looking_at == 0){
+        ctx.beginPath();
+        ctx.arc(width/2,height/4,15,0,2*Math.PI);
+        ctx.stroke();
+      } else if(currently_looking_at == 0){
+        ctx.beginPath();
+        ctx.arc(width/4,3*height/4,15,0,2*Math.PI);
+        ctx.stroke();        
+      } else {
+        ctx.beginPath();
+        ctx.arc(3 * width / 4, 3 * height / 4,15,0,2*Math.PI);
+        ctx.stroke();
+      }
     }
 
     function setup_plotter(){
@@ -174,7 +189,8 @@
 	    }
 	    var xprediction = data.x; //these x coordinates are relative to the viewport
 	    var yprediction = data.y; //these y coordinates are relative to the viewport
-	    document.getElementById("output").innerHTML = argmax(g.evaluate(math.matrix([xprediction, yprediction])));
+      var currently_looking_at = argmax(g.evaluate(math.matrix([xprediction, yprediction])));
+	    document.getElementById("output").innerHTML = currently_looking_at;
 
       //this will plot the dots that we will see
       //make sure to check that the dot will not draw over the video feed
@@ -185,7 +201,7 @@
         ctx.fillRect(0,240, plotter.width, plotter.height);
 
         //draw the three targets
-        draw_targets(plotter);
+        draw_targets(plotter, currently_looking_at);
         
         ctx.beginPath();
         ctx.arc(xprediction,yprediction,5,0,2*Math.PI);
