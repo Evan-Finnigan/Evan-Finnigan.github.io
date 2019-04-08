@@ -199,9 +199,9 @@
       //make sure to check that the dot will not draw over the video feed
       if(xprediction > 322.5 || yprediction > 242.5){
         var ctx = plotter.getContext("2d");
-        ctx.fillStyle = "white";
-        ctx.fillRect(320, 0, plotter.width, plotter.height);
-        ctx.fillRect(0,240, plotter.width, plotter.height);
+//         ctx.fillStyle = "white";
+//         ctx.fillRect(320, 0, plotter.width, plotter.height);
+//         ctx.fillRect(0,240, plotter.width, plotter.height);
 
         //draw the three targets
         draw_targets(plotter, currently_looking_at);
