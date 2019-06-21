@@ -12,6 +12,9 @@
   //global GHMM object
   var g = new GHMM(3,2, [10000, 10000, 10000], [[610, 162], [305, 487], [915, 487]]);
   var already_pressed = false;
+	
+  // to allow training and testing mode 
+  var testing = false; 
 
   //setup functions for video feed and plotter
   function setup_webgazer() {
@@ -199,9 +202,12 @@
       //make sure to check that the dot will not draw over the video feed
       if(xprediction > 322.5 || yprediction > 242.5){
         var ctx = plotter.getContext("2d");
-        ctx.fillStyle = "white";
-        ctx.fillRect(320, 0, plotter.width, plotter.height);
-        ctx.fillRect(0,240, plotter.width, plotter.height);
+	if(!testing){
+		ctx.fillStyle = "white";
+		ctx.fillRect(320, 0, plotter.width, plotter.height);
+		ctx.fillRect(0,240, plotter.width, plotter.height);
+	}
+	      
 
         //draw the three targets
         draw_targets(plotter, currently_looking_at);
@@ -211,6 +217,9 @@
         ctx.fillStyle = 'green';
         ctx.fill();
         ctx.stroke();
+	      
+	      
+	console.log("[" + xprediction + "," + yprediction + "]")
 
         document.getElementById("location").innerHTML = xprediction + " " + yprediction;
 
@@ -239,7 +248,8 @@
   <td>Nothing yet!</td> 
   </tr>
 </table>
-<p id = "location"> Nothing yet </p>
+<p id = "location"> start clicking on points to calibrate and get started </p>
+	
 </body>
 
 </html>
