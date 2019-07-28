@@ -1,0 +1,19 @@
+li{
+	display:inline;
+}
+
+ul {
+	list-style-type: none;
+	margin-top: 25px;
+	padding: 0px;
+	color:black;
+	font-size: 15px;
+}
+
+a:link {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
